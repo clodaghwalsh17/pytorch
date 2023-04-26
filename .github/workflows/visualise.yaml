@@ -5,9 +5,12 @@ on: workflow_dispatch
 jobs:
   job1:
     runs-on: ubuntu-latest
-    - name: Checkout code
-    uses: actions/checkout@master
-    - name: Update diagram
-    uses: githubocto/repo-visualizer@0.7.1
-    with:
-      output_file: "images/diagram.svg"
+    name: Create repo view
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      
+      - name: Update diagram
+        uses: githubocto/repo-visualizer@0.7.1
+        with:
+          output_file: "images/diagram.svg"
